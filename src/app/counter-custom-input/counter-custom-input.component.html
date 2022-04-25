@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <input type="text" placeholder="enter a number" [(ngModel)]="value">
+                <button class="btn btn-warning m-2" (click)="onadd()">add to counter</button>
+                <h2>{{title$ | async}}</h2>
+                <button (click)="changetext()" class="btn btn-primary m-2">changetext</button>
+            </div>
+        </div>
+    </div>
+</div>

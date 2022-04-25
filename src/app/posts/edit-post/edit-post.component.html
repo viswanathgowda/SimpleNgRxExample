@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-12 my-4">
+      
+        <h3>Update Post</h3>
+        <hr>
+        <form [formGroup]="postform" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label>Title</label>
+                <input type="text" formControlName="title" class="form-control"  [class.is-invalid]="postform.get('title')?.touched && postform.get('title')?.invalid" >
+                <div *ngIf="postform.get('title')?.touched && !postform.get('title')?.valid">
+
+               
+               
+            
+                <div *ngIf="postform.get('title')?.errors?.['required']" class="text-danger" >Title is required</div>
+                <div *ngIf="postform.get('title')?.errors?.['minlength']" class="text-danger">Min 6 letters required</div>
+            </div>
+            </div>
+
+            <div class="mb-4">
+            <label>Description</label>
+            <textarea class="form-control" formControlName="description" [class.is-invalid]="postform.get('description')?.touched && postform.get('description')?.invalid" ></textarea>
+            <!-- <div>{{showDescriptionErrors()}}</div> -->
+            <div *ngIf="postform.get('description')?.touched && !postform.get('description')?.valid">
+            <div *ngIf="postform.get('description')?.errors?.['required']" class="text-danger" >Description is required</div>
+            <div *ngIf="postform.get('description')?.errors?.['minlength']" class="text-danger">Min 10 letters required</div>
+          </div>
+
+            </div>
+            <div class="my-4">
+                <button type="submit" class="btn btn-primary"  >Update Post</button>
+            </div>
+        </form>
+      
+    </div>
+</div>
